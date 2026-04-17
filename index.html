@@ -100,6 +100,21 @@
         .header h1 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 300; letter-spacing: 0.6em; margin: 0; text-indent: 0.6em; }
         .header p { font-size: 0.8rem; letter-spacing: 0.2em; color: var(--text-sub); margin-top: 10px; font-weight: 300; }
 
+ /* 新的水印位置：位於副標題與卡片之間 */
+.watermark-inline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    transition: color 0.8s ease;
+    opacity: 0.5;
+}
+[data-theme="light"] .watermark-inline { color: #e0e0e0; } /* 淺色模式極淡 */
+[data-theme="dark"] .watermark-inline { color: #1a1a1c; }  /* 深色模式極暗 */
+
+
         .card-wrapper { 
             flex: 1; display: flex; align-items: flex-start; justify-content: center;
             pointer-events: auto; width: 90%; max-width: 380px;
@@ -218,6 +233,8 @@
 
     <div class="overlay">
         <div class="header"><h1>RESONANCE</h1><p>共鳴歌詞 · 泰倫斯Terence</p></div>
+    <div class="watermark-inline">JLPL</div>
+
         <div class="card-wrapper">
             <div class="card" id="main-card">
                 <div class="placeholder-container" id="placeholder"><div class="placeholder-icon">✧</div></div>
