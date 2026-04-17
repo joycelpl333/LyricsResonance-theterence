@@ -96,21 +96,30 @@
             letter-spacing: 0.1em; backdrop-filter: blur(5px);
         }
 
-        .header { text-align: center; margin-bottom: 2vh; opacity: 0; animation: fadeIn 1.2s forwards ease-out; width: 100%; }
+        .header { text-align: center; margin-bottom: 2vh; opacity: 0; animation: fadeIn 1.2s forwards ease-out; width: 100%;position: relative; }
         .header h1 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 300; letter-spacing: 0.6em; margin: 0; text-indent: 0.6em; }
         .header p { font-size: 0.8rem; letter-spacing: 0.2em; color: var(--text-sub); margin-top: 10px; font-weight: 300; }
 
- /* 新的水印位置：位於副標題與卡片之間 */
- .watermark-inline {
+ /* 修改後的浮水印：不佔用物理空間 */
+.watermark-inline {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.65rem;
     letter-spacing: 0.5em;
     text-indent: 0.5em;
     
+    /* 核心修改：使用絕對定位使其懸浮在空白處 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1.5vh; /* 這裡的數值根據你的 margin-bottom: 2vh 調整，使其剛好在中間 */
     
+    white-space: nowrap;
     transition: color 0.8s ease;
     opacity: 0.5;
+    pointer-events: none; /* 防止干擾點擊 */
 }
+
+
 [data-theme="light"] .watermark-inline { color: #e0e0e0; } /* 淺色模式極淡 */
 [data-theme="dark"] .watermark-inline { color: #1a1a1c; }  /* 深色模式極暗 */
 
@@ -232,8 +241,10 @@
     <div id="toast">下載中...</div>
 
     <div class="overlay">
-        <div class="header"><h1>RESONANCE</h1><p>共鳴歌詞 · 泰倫斯Terence</p></div>
-    <div class="watermark-inline">JLPL</div>
+        <div class="header">
+    <h1>RESONANCE</h1>
+    <p>共鳴歌詞 · 泰倫斯Terence</p>
+    <div class="watermark-inline">JLPL</div> </div>
 
         <div class="card-wrapper">
             <div class="card" id="main-card">
