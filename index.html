@@ -388,7 +388,7 @@
         <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="currentColor"/>
     </svg>
 </button>
-    <button class="mute-control" id="mute-btn">■</button>
+    <button class="mute-control" id="mute-btn">♪</button>
 
     <div id="export-container"></div>
     <div id="qr-hidden" style="display:none;"></div>
@@ -651,7 +651,7 @@ setTimeout(() => {
         muteBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             isMuted = !isMuted;
-            muteBtn.innerText = isMuted ? '■' : '♪';
+            muteBtn.innerText = isMuted ? '♪' : '■';
             
             // 因為按鈕只在歌詞頁出現，直接判斷是否要淡入或淡出聲音即可
     if (isPlayerReady) {
@@ -689,7 +689,7 @@ setTimeout(() => {
 		// 【新增】：隱藏 Mute 按鈕並重置為靜音狀態
     muteBtn.classList.remove('show');
     isMuted = true;
-    muteBtn.innerText = '■';
+    muteBtn.innerText = '♪';
 
             fadeAudioOut();
             setTimeout(() => { 
